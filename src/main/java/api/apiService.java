@@ -36,7 +36,7 @@ public class apiService {
     }
 
     @PostMapping("/addEntity")
-    public Result addEntity() throws Exception {
+    public Result addEntity() {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("上传成功");
@@ -44,7 +44,7 @@ public class apiService {
     }
 
     @PostMapping("/delEntity")
-    public Result delEntity() throws Exception {
+    public Result delEntity() {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("删除成功");
@@ -52,7 +52,7 @@ public class apiService {
     }
 
     @PostMapping("/train")
-    public Result train() throws Exception {
+    public Result train() {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("已启动模型训练");
@@ -60,7 +60,7 @@ public class apiService {
     }
 
     @PostMapping("/status")
-    public JSONObject status() throws Exception {
+    public JSONObject status() {
         String statusContent = "{" +
                 "    \"code\": 0," +
                 "    \"msg\": \"获取成功\"," +
@@ -77,7 +77,7 @@ public class apiService {
     }
 
     @PostMapping("/serving")
-    public Result serving() throws Exception {
+    public Result serving() {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("发布成功");
@@ -99,7 +99,7 @@ public class apiService {
     }
 
     @PostMapping("/export")
-    public Result exportModel() throws Exception {
+    public Result exportModel() {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("已导出");
