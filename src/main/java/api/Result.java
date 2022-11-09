@@ -10,7 +10,7 @@ public class Result<T> implements Serializable {
     //状态码
     private Integer code;
     //状态
-    private String msg;
+    private String message;
     //返回封装数据
     private T data;
 
@@ -22,24 +22,22 @@ public class Result<T> implements Serializable {
         this.code = code;
     }
 
-    public Result(Integer code, String msg) {
+    public Result(Integer code, String message) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
     }
 
-    public Result(Integer code, String msg, T data) {
+    public Result(Integer code, String message, T data) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
         this.data = data;
     }
 
-    //不返回数据构造方法
     public Result(CodeEnum codeEnum) {
         this.code = codeEnum.getCode();
-        this.msg = codeEnum.getMsg();
+        this.message = codeEnum.getmessage();
     }
 
-    //返回数据构造方法
     public Result(CodeEnum codeEnum, T data) {
         this(codeEnum);
         this.data = data;
@@ -53,12 +51,12 @@ public class Result<T> implements Serializable {
         this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {
@@ -71,28 +69,31 @@ public class Result<T> implements Serializable {
 
 
     //请求成功（不返回数据）
-    public static <T> Result <T> ok(){
-        return new Result <T>(CodeEnum.SUCCESS);
+    public static <T> Result<T> ok() {
+        return new Result<T>(CodeEnum.SUCCESS);
     }
 
     //请求成功（返回数据）
-    public static <T> Result <T> ok(T data){
-        return new Result <T>(CodeEnum.SUCCESS,data);
+    public static <T> Result<T> ok(T data) {
+        return new Result<T>(CodeEnum.SUCCESS, data);
     }
 
     //参数格式不正确
-    public static <T> Result <T> error(){
-        return new Result <T>(CodeEnum.BAD_REQUEST);
+    public static <T> Result<T> error() {
+        return new Result<T>(CodeEnum.BAD_REQUEST);
     }
 
-
+    //参数格式不正确
+    public static <T> Result<T> error(T data) {
+        return new Result<T>(CodeEnum.BAD_REQUEST, data);
+    }
 
 
     @Override
     public String toString() {
         return "Result{" +
                 "code=" + code +
-                ", msg='" + msg + '\'' +
+                ", message='" + message + '\'' +
                 ", data=" + data +
                 '}';
     }

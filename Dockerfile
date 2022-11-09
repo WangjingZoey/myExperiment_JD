@@ -1,5 +1,5 @@
 #基础镜像通过java8来的
-FROM java:8
+FROM openjdk:8
 #将当前文件中所有*.jar  拷贝到项目的app.jar中（这个app.jar是自己生成的）
 COPY target/myExperiment-0.0.1-SNAPSHOT.jar /app.jar
 COPY *.json /home/
